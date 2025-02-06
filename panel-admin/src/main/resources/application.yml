@@ -1,0 +1,21 @@
+server:
+  port: 23443
+  ssl:
+    bundle: panel-bundle
+    client-auth: want
+
+spring:
+  application:
+    name: admin-scratch
+  ssl:
+    bundle:
+      pem:
+        panel-bundle:
+          keystore:
+            certificate: file:/home/sergey/tmp/fullchain.cer
+            private-key: file:/home/sergey/tmp/hiddy.pianoforte.cloudns.ph.key
+
+panel:
+  admin:
+    username: ${PANEL_ADMIN}
+    password: ${PANEL_PASSWORD}

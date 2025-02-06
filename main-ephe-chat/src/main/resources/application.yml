@@ -1,0 +1,35 @@
+server:
+  port: 12443
+  ssl:
+    bundle: chat-bundle
+    client-auth: want
+
+spring:
+  application:
+    name: chatScratch
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:MESSAGEHISTORY;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: sa
+  flyway:
+    enabled: false
+    url: jdbc:h2:mem:MESSAGEHISTORY
+    user: sa
+    password: sa
+  ssl:
+    bundle:
+      pem:
+        chat-bundle:
+          keystore:
+            certificate: file:/home/sergey/tmp/fullchain.cer
+            private-key: file:/home/sergey/tmp/hiddy.pianoforte.cloudns.ph.key
+
+chat:
+  username: ${CHAT_USERNAME}
+  password: ${CHAT_PASSWORD}
+  upload-path: /home/sergey/upload #TODO: change

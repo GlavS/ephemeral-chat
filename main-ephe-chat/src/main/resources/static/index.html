@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ephemeral chat</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/css/all.min.css">
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/appchat.js"></script>
+</head>
+
+<style>
+    a.nav-link {
+        color: gray;
+        font-size: 18px;
+        padding: 0;
+    }
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #e84118;
+        padding: 2px;
+        flex: none;
+    }
+
+    .card-text {
+        border: 2px solid #ddd;
+        border-radius: 8px;
+    }
+
+    #body {
+        height: 500px;
+        overflow: auto;
+    }
+</style>
+
+<body>
+
+<div class="container mt-4">
+    <div class="card mx-auto" style="max-width:400px">
+
+        <div id="login" class="card text-center">
+            <div class="card-header">
+                Enter your nickname:
+            </div>
+            <div class="card-body">
+                <input id="usernameId" type="text" class="form-control mb-2" placeholder="Username" aria-label="Username">
+                <button class="btn btn-primary" onclick="connect()">
+                    Enter
+                </button>
+            </div>
+        </div>
+
+<!--          Зона заголовка       -->
+        <div id="header" class="card-header bg-transparent">
+            <div id="users-panel" class="navbar navbar-expand p-0">
+
+            </div>
+        </div>
+
+<!--        Зона сообщений   -->
+        <div id="body" class="card-body p-4">
+
+        </div>
+
+<!--        Зона ввода        -->
+
+        <div id="footer" class="card-footer bg-white position-absolute w-100 bottom-0 m-0 p-1">
+            <div class="input-group">
+                <div class="input-group-text bg-transparent border-0">
+                    <input type="file" name="fileupload" id="fileupload" style="display: none">
+                    <button class="btn btn-light text-secondary" onclick="sendFile()">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                </div>
+                <input type="text" class="form-control border-0" placeholder="Write a message..." id="messageInput">
+                <div class="input-group-text bg-transparent border-0">
+                    <button class="btn btn-light text-secondary" onclick="sendMsg()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        const headerEl = document.getElementById('header');
+        const bodyEl = document.getElementById('body');
+        const footerEl = document.getElementById('footer');
+
+        headerEl.hidden = true;
+        bodyEl.hidden = true;
+        footerEl.hidden = true;
+    }
+</script>
+</body>
+</html>

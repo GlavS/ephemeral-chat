@@ -1,0 +1,4 @@
+panel:
+  admin:
+    username: testAdmin
+    password: testPassword

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin page</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container-sm">
+    <h1>Ephemeral chat container options</h1>
+
+    <div class="card text-bg-light" style="width: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title">Define chat login</h5>
+            <form method="POST" action="/start">
+                <div class="mb-3">
+                    <label for="chat-username-input" class="form-label">Username</label>
+                    <input name="chatUsername" type="text" class="form-control" id="chat-username-input"
+                           placeholder="Enter chat login username">
+                </div>
+                <div class="mb-3">
+                    <label for="chat-password-input" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="chat-password-input">
+                </div>
+                <div class="mb-3">
+                    <label for="chat-container-port" class="form-label">Port</label>
+                    <input name="chatPort" type="text" class="form-control" id="chat-container-port"
+                           placeholder="Enter enter port number (10000 - 65535)">
+                </div>
+                <button type="submit" class="btn btn-primary">Start container</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
