@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin main form</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/css/all.min.css">
+</head>
+<body>
+
+<ul>
+    <li>ContainerId: <span id="containerId" th:text="${containerId}"></span></li>
+    <li>Container name: <span th:text="${containerName}"></span></li>
+    <li>Username: <span th:text="${body.chatUsername()}"></span></li>
+    <li>Password: <span th:text="${body.password()}"></span></li>
+    <li>Port to connect: <span th:text="${body.chatPort()}"></span></li>
+</ul>
+<form action="/stop" method="POST">
+    <input type="text" hidden="hidden" name="containerId" th:value="${containerId}">
+    <input type="submit" value="Stop">
+</form>
+
+</body>
+</html>
